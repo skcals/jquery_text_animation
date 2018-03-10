@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Jquery text animation</title>
+	<script src="js/jquery.min.js"></script>
+</head>
+<body>
+	
+
+
+<div class="text-box"></div>
+
+
+<!--jquery scrpit -->
+
+<script type="text/javascript">
+	
+	$(document).ready(function(){
+
+		  var text = "Text Animation Effect";
+
+		  $.each(text.split(""), function(key, val){
+
+		  $('.text-box').append('<div class="split-text">'+val+'</div>');
+
+     });
+
+		  var each_text = $('.split-text');
+
+		  $.each(each_text, function(){
+            var rand = Math.floor(Math.random()*1000);
+
+
+             // random color
+
+             var r = Math.floor(Math.random()*255);
+             var g = Math.floor(Math.random()*255);
+             var b = Math.floor(Math.random()*255);
+
+
+         $(this).css({
+         	'color':'rgb('+r+','+g+','+b+')',
+         	'margin-top': -rand
+
+         }).animate({
+         	marginTop: '0px'
+         }, 1000);
+
+         
+
+		  });
+
+  });
+
+</script>
+
+<!--css style -->
+
+<style>
+	.text-box{
+		margin: 200px auto;
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	.split-text{
+		padding: 15px;
+		font-size: 100px;
+		font-family: sans-serif;
+	}
+</style>
+
+
+</body>
+</html>
